@@ -1,0 +1,16 @@
+## Testing Results
+
+I tested both programs twice on my Windows computer using Python 3.11.15.
+
+| Test | Threading | Multiprocessing |
+|---|---|---|
+| Run 1 | 0.0087 seconds | 0.5677 seconds |
+| Run 2 | 0.0076 seconds | 0.2363 seconds |
+
+Both programs produced and consumed all 30 items in each test. There were no missing or duplicate items, and both consumers stopped correctly.
+
+The threading version was faster in both tests. This is because the workload is small, while multiprocessing has extra overhead from starting separate processes and communicating between them.
+
+The Global Interpreter Lock (GIL) can limit threading performance for CPU-intensive Python programs. However, this assignment mostly involves adding and removing items from a queue, so the GIL did not have a major negative effect on threading performance.
+
+Overall, both versions worked correctly. Threading was faster for this particular workload, but multiprocessing can be better when a program needs to perform CPU-intensive tasks on multiple cores.
